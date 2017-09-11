@@ -1,12 +1,35 @@
 body {
   margin: 0; padding: 0;
+  background-color: azure;
 }
 
 .container {
-  height: 100vh;
+  margin: 0 auto;
+  height: 100vh; width: 400px;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+section {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  font-family: serif;
+}
+
+section.top time {
+  /*transform: rotate(-180deg);*/
+}
+
+button:hover {
+  background-color: lightgray;
+}
+
+.clicked {
+  background-color: lightblue;
+  color: red;
+}

@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>chess</title>
 </head>
 <body>
   <div class="container">
-    <button id="onwMin" data-time="60" data-desc="1 min">1 min</button>
-    <button id="twoMin" data-time="120" data-desc="2 min">2 min</button>
+    <section class="top">
+      <time id="time1">0:00</time>
+    </section>
+    <button id="oneMin" data-time="60" data-desc="1 min"></button>
+    <button id="twoMin" data-time="120" data-desc="2 min"></button>
     <button id="start">start</button>
-    <time id="time1">2:00</time>
-    <time id="time2">2:00</time>
+    <audio data-click="" src="switch-15.wav"></audio>
+    <section class="bottom">
+      <time id="time2">0:00</time>
+    </section>
   </div>
 
-  <script type="text/javascript" src="script.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
