@@ -1,6 +1,10 @@
 const startBtn = document.getElementById('start');
 const minuteBtn = document.querySelectorAll('[data-time]');
 const click = document.querySelector('audio[data-click]');
+const half = document.querySelectorAll('section[data-desc]');
+const topHalf = document.querySelector('.top');
+const bottomHalf = document.querySelector('.bottom');
+
 const time1 = document.getElementById('time1');
 const time2 = document.getElementById('time2');
 
@@ -11,8 +15,7 @@ minuteBtn.forEach(b => {
     let time = parseInt(b.dataset.time);
     if (!interval) {
       count1 = count2 = time;
-      const display = formatTime(time);
-      time1.textContent = time2.textContent = display;
+      time1.textContent = time2.textContent = formatTime(time);
       console.log(count1, count2);
     }
   })
@@ -20,5 +23,39 @@ minuteBtn.forEach(b => {
 
 startBtn.addEventListener('click', () => {
   timerCheck();
-  click.play();
+  startCheck(); // only runs when count1 & count2 are undefined
 });
+
+// half.forEach(h => {
+  // if (h.dataset.desc == "top" && time1) {
+    // h.addEventListener('click', timerCheck)
+    // console.log('hi');
+  // } else if (h.dataset.desc == "bottom" && time2) {
+    // h.addEventListener('click', timerCheck)
+    // console.log('hello');
+  // }
+// })
+
+// half.forEach(h => {
+//   h.addEventListener('click', function handler(e) {
+//     timerCheck()
+//     // const y = e.currentTarget;
+//     // console.log(e);
+//     e.currentTarget.removeEventListener(e.type, handler);
+//     console.log('fire only once');
+//   })
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+

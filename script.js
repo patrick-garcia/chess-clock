@@ -1,31 +1,31 @@
-let interval;
-let timerRunning1 = false;
-let timerRunning2 = false;
 let count1, count2;
+// let timer1, timer2; // on/off
+let interval;
+let timerOne; // if true timer1 is on timer2 is off, vice versa
 
-let controls = [
-  {isOn: false, twoMin: 120, oneMin: 60},
-  {isOn: false, twoMin: 120, oneMin: 60}
-];
+// let controls = [
+//   {isOn: false, twoMin: 120, oneMin: 60},
+//   {isOn: false, twoMin: 120, oneMin: 60}
+// ];
 
 // countdown using interval function
 function countdown(secs) {
   const fixedTime = secs + timeStamp();
-  displayTime(secs);
+  // displayTime(secs);
 
   interval = setInterval(function() {
 
-    if (timerRunning1) {
+    if (timerOne) {
       count1 = fixedTime - timeStamp();
       displayTime(count1);
-    } else if (timerRunning2) {
+    } else {
       count2 = fixedTime - timeStamp();
       displayTime(count2);
     }
 
     if (count1 <= 0 || count2 <= 0) {
       clearInterval(interval);
-      timerRunning1 = timerRunning2 = false;
+      timer1 = timer2 = false;
       return;
     }
     
@@ -37,16 +37,16 @@ function countdown(secs) {
 function displayTime(x) {
   const display = formatTime(x);
 
-  if (timerRunning1) {
+  if (timerOne) {
     time1.textContent = display;
-  } else if (timerRunning2) {
+  } else {
     time2.textContent = display;
   }
 };
 
-// check which timer is running
-function timerCheck() {
-  if (count1 == null && count2 == null) {
+// check if timer is off
+function startCheck() {
+  if (!count1 && !count2) {
     swal({
       icon: "error",
       title: "whoopsie daisy!",
@@ -55,25 +55,27 @@ function timerCheck() {
         text: "got it"
       }
     });
-
-  } else if (!timerRunning1 && !timerRunning2) {
-    timerRunning1 = !timerRunning1;
-    timerRunning2 = timerRunning2;
-    return countdown(count1)
+  } else if (timerOne === undefined) {
+    timerOne = true;
+    clickSound();
+    return countdown(count1);
   }
+}
 
-  if (timerRunning1) {
-    timerRunning1 = !timerRunning1;
-    timerRunning2 = !timerRunning2;
+// check which timer is running
+function timerCheck() {
+  if (timerOne) {
+    timerOne = !timerOne;
+    clickSound();
     clearInterval(interval);
     return countdown(count2);
     
-  } else if (timerRunning2) {
-    timerRunning1 = !timerRunning1;
-    timerRunning2 = !timerRunning2;
+  } else if (timerOne === false) {
+    timerOne = !timerOne;
+    clickSound();
     clearInterval(interval);
     return countdown(count1);
-  }
+  } // must declare "timerOne === false" and not "!timerOne".  Undefined yields false
 };
 
 // get time, convert to seconds
@@ -85,7 +87,10 @@ function formatTime(s) {
   return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 };
 
-
+function clickSound() {
+  click.currentTime = 0; // currentTime sets playback begin time in seconds
+  click.play();
+};
 
 
 
