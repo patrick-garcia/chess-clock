@@ -21,11 +21,8 @@ function countdown(secs) {
 
     if (count1 <= 0 || count2 <= 0) {
       clearInterval(interval);
-      timer1 = timer2 = false;
       return;
     }
-    
-    // console.log(count1, count2);
   }, 1000);
 
   clickToggle();
@@ -53,7 +50,7 @@ function startCheck() {
         text: "got it"
       }
     });
-    // buzzerSound();
+    buzzerSound();
   } else if (runTimerOne === undefined) {
     clickSound();
     
@@ -96,9 +93,8 @@ function formatTime(s) {
 };
 
 // audio
-function clickSound() { click.currentTime = 0; click.play(); };
-function buzzerSound() { buzzer.currentTime = 0; buzzer.play(); };
-
+function clickSound() { click.currentTime = 0; click.volume = .5; click.play(); };
+function buzzerSound() { buzzer.currentTime = 0; buzzer.volume = .05; buzzer.play(); };
 
 
 

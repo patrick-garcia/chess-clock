@@ -23,13 +23,13 @@ half.forEach(h => {
 });
 
 function startingPlayerCheck() {
-  console.log(this);
+  // console.log(this);
   startingPlayer = this.dataset.desc
   startCheck()
 
   if (count1 && count2) {
     half.forEach(h => {
-      h.removeEventListener('click', startingPlayerCheck) // remove eventList & use clickToggle function to add/remove eventList
+      h.removeEventListener('click', startingPlayerCheck) // remove eventList after firing once & use clickToggle function to add/remove eventList
     })
   }
 };
