@@ -7,17 +7,21 @@
   <title>chess</title>
 </head>
 <body>
+  <button id="oneMin" data-time="60" data-desc="1 min"></button>
+  <button id="twoMin" data-time="120" data-desc="2 min"></button>
+  <button id="start">start</button>
+  <audio data-click="" src="switch-15.wav"></audio>
+  <audio data-buzzer="" src="buzzer.mp3"></audio>
   <div class="container">
-    <section class="top half" data-desc="top">
-      <time id="time1">0:00</time>
-    </section>
-    <button id="oneMin" data-time="60" data-desc="1 min"></button>
-    <button id="twoMin" data-time="120" data-desc="2 min"></button>
-    <button id="start">start</button>
-    <audio data-click="" src="switch-15.wav"></audio>
-    <section class="bottom half" data-desc="bottom">
-      <time id="time2">0:00</time>
-    </section>
+    <div class="parent-timer">
+      <section class="top-timer" data-desc="top">
+        <time id="time1">0:00</time>
+      </section>
+      
+      <section class="bottom-timer" data-desc="bottom">
+        <time id="time2">0:00</time>
+      </section>
+    </div>
   </div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

@@ -1,21 +1,17 @@
-let count1, count2;
-// let timer1, timer2; // on/off
-let interval;
-let timerOne; // if true timer1 is on timer2 is off, vice versa
+let app = {};
 
-// let controls = [
-//   {isOn: false, twoMin: 120, oneMin: 60},
-//   {isOn: false, twoMin: 120, oneMin: 60}
-// ];
+let count1, count2;
+let interval;
+let runTimerOne; // if true timer1 is on timer2 is off, vice versa
+let startingPlayer; // if true top is clicked (run timer 1), if false bottom is clicked (run timer 2)
 
 // countdown using interval function
 function countdown(secs) {
   const fixedTime = secs + timeStamp();
-  // displayTime(secs);
 
   interval = setInterval(function() {
 
-    if (timerOne) {
+    if (runTimerOne) {
       count1 = fixedTime - timeStamp();
       displayTime(count1);
     } else {
@@ -29,15 +25,17 @@ function countdown(secs) {
       return;
     }
     
-    console.log(count1, count2);
+    // console.log(count1, count2);
   }, 1000);
+
+  clickToggle();
 };
 
 // display formatted time
 function displayTime(x) {
   const display = formatTime(x);
 
-  if (timerOne) {
+  if (runTimerOne) {
     time1.textContent = display;
   } else {
     time2.textContent = display;
@@ -55,27 +53,37 @@ function startCheck() {
         text: "got it"
       }
     });
-  } else if (timerOne === undefined) {
-    timerOne = true;
+    // buzzerSound();
+  } else if (runTimerOne === undefined) {
     clickSound();
-    return countdown(count1);
+    
+    let startingCount;
+    if (startingPlayer === 'top') {
+      runTimerOne = true
+      startingCount = count1
+    } else {
+      runTimerOne = false
+      startingCount = count2
+    }
+    
+    return countdown(startingCount); // *****
   }
 }
 
-// check which timer is running
+// switch which timer is running
 function timerCheck() {
-  if (timerOne) {
-    timerOne = !timerOne;
+  if (runTimerOne) {
+    runTimerOne = !runTimerOne;
     clickSound();
     clearInterval(interval);
     return countdown(count2);
     
-  } else if (timerOne === false) {
-    timerOne = !timerOne;
+  } else if (runTimerOne === false) {
+    runTimerOne = !runTimerOne;
     clickSound();
     clearInterval(interval);
     return countdown(count1);
-  } // must declare "timerOne === false" and not "!timerOne".  Undefined yields false
+  } // must declare "runTimerOne === false" and not "!runTimerOne" cause "undefined" yields falsey
 };
 
 // get time, convert to seconds
@@ -87,10 +95,9 @@ function formatTime(s) {
   return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 };
 
-function clickSound() {
-  click.currentTime = 0; // currentTime sets playback begin time in seconds
-  click.play();
-};
+// audio
+function clickSound() { click.currentTime = 0; click.play(); };
+function buzzerSound() { buzzer.currentTime = 0; buzzer.play(); };
 
 
 
@@ -100,9 +107,3 @@ function clickSound() {
 
 
 
-
-
-
-
-
-  
