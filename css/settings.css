@@ -1,0 +1,50 @@
+.settings-wrap {
+  margin: 25vh 0 25vh 0;
+  color: black;
+}
+
+.settings div.top-panel, .settings div.bottom-panel {
+  width: 100%;
+  display: flex;
+}
+
+.settings section.top-panel-input {
+  width: calc(100% / 3);
+  height: 25vh;
+  font-size: 32px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings section.bottom-panel-input {
+  width: 50%;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*flip effect*/
+.timers {
+  transform: rotateY(-180deg);
+}
+
+.timers, .settings {
+  backface-visibility: hidden;
+  transition: transform .3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container.flip-effect.flipped .settings {
+  transform: rotateY(-180deg);
+}
+
+.container.flip-effect.flipped .timers {
+  transform: rotateY(0);
+}

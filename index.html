@@ -3,29 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/settings.css">
   <title>chess</title>
 </head>
 <body>
-  <button id="oneMin" data-time="60" data-desc="1 min"></button>
-  <button id="twoMin" data-time="120" data-desc="2 min"></button>
-  <button id="start">start</button>
-  <audio data-click="" src="switch-15.wav"></audio>
-  <audio data-buzzer="" src="buzzer.mp3"></audio>
-  <div class="container">
-    <div class="parent-timer">
+  
+  <div class="container flip-effect">
+    <div class="timers">
       <section class="top-timer" data-desc="top">
         <time id="time1">0:00</time>
       </section>
       
-      <section class="bottom-timer" data-desc="bottom">
+      <section class="bottom-timer black-bg" data-desc="bottom">
         <time id="time2">0:00</time>
       </section>
     </div>
+    <div class="settings">
+      <div class="settings-wrap">
+        <div class="top-panel">
+          <section class="top-panel-input" data-time="120"></section>
+          <section class="top-panel-input" data-time="300"></section>
+          <section class="top-panel-input" data-time="900"></section>
+        </div>
+        <div class="bottom-panel">
+          <section class="bottom-panel-input" id="custom">custom</section>
+          <section class="bottom-panel-input" id="start">start</section>
+        </div>
+      </div>
+    </div>
   </div>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="main.js"></script>
+  <audio data-audio="click" src="audio/switch-15.wav"></audio>
+  <audio data-audio="buzzer" src="audio/buzzer.mp3"></audio>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/flip-effect.js"></script>
+  
 </body>
 </html>

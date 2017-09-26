@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:900,900i');
+
+html {box-sizing: border-box;} *, *:before, *:after {box-sizing: inherit;}
+
+body {
+  margin: 0; padding: 0;
+}
+
+.container {
+  margin: 0 auto;
+  height: 100vh;
+  width: 100%;
+  max-width: 414px; /* iPhone 7plus width */
+  background-color: white;
+  position: relative; /* required for flip effect */
+}
+
+.timers {
+  display: flex;
+  flex-direction: column;
+}
+
+.timers section {
+  height: 50vh;
+  font-size: 80px;
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #ffffff; /* Old Browsers */
+  background: -webkit-radial-gradient(top left,#ffffff,#e6e6e6); /*Safari 5.1-6*/
+  background: -o-radial-gradient(top left,#ffffff,#e6e6e6); /*Opera 11.1-12*/
+  background: -moz-radial-gradient(top left,#ffffff,#e6e6e6); /*Fx 3.6-15*/
+  background: radial-gradient(top left, #ffffff, #e6e6e6); /*Standard*/
+  color: black;
+  transition: all .3s linear;
+}
+
+time#time1 {
+  transform: rotate(180deg);
+}
+
+.timers section.black-bg {
+  background: #0c0b0b; /* Old Browsers */
+  background: -webkit-radial-gradient(top right,#0c0b0b,#515151); /*Safari 5.1-6*/
+  background: -o-radial-gradient(top right,#0c0b0b,#515151); /*Opera 11.1-12*/
+  background: -moz-radial-gradient(top right,#0c0b0b,#515151); /*Fx 3.6-15*/
+  background: radial-gradient(top right, #0c0b0b, #515151); /*Standard*/
+  color: white;
+}
+
+
+

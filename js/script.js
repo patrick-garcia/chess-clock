@@ -3,7 +3,7 @@ let app = {};
 let count1, count2;
 let interval;
 let runTimerOne; // if true timer1 is on timer2 is off, vice versa
-let startingPlayer; // if true top is clicked (run timer 1), if false bottom is clicked (run timer 2)
+let startingPlayer; // if true top WAS CLICKED (run timer 1), if false bottom WAS CLICKED (run timer 2)
 
 // countdown using interval function
 function countdown(secs) {
@@ -46,11 +46,10 @@ function startCheck() {
       icon: "error",
       title: "whoopsie daisy!",
       text: "you need to set the number of minutes",
-      button: {
-        text: "got it"
-      }
+      button: {text: "got it"}
     });
-    buzzerSound();
+    // buzzerSound();
+
   } else if (runTimerOne === undefined) {
     clickSound();
     
@@ -63,11 +62,11 @@ function startCheck() {
       startingCount = count2
     }
     
-    return countdown(startingCount); // *****
+    return countdown(startingCount);
   }
-}
+};
 
-// switch which timer is running
+// check which timer is running, them switch
 function timerCheck() {
   if (runTimerOne) {
     runTimerOne = !runTimerOne;
@@ -80,7 +79,7 @@ function timerCheck() {
     clickSound();
     clearInterval(interval);
     return countdown(count1);
-  } // must declare "runTimerOne === false" and not "!runTimerOne" cause "undefined" yields falsey
+  } // must declare "runTimerOne === false" and not "!runTimerOne" cause "undefined" yields falsey, timer runs unexpectedly
 };
 
 // get time, convert to seconds
@@ -91,15 +90,3 @@ function formatTime(s) {
   const secs = s % 60;
   return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 };
-
-// audio
-function clickSound() { click.currentTime = 0; click.volume = .5; click.play(); };
-function buzzerSound() { buzzer.currentTime = 0; buzzer.volume = .05; buzzer.play(); };
-
-
-
-
-
-
-
-
