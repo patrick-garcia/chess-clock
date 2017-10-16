@@ -2,34 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <link rel="icon" type="image/png" href="images/chess-favicon2.png">
+  <link rel="stylesheet" type="text/css" href="css/base.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/settings.css">
-  <title>chess</title>
+  <title>Chess Timer</title>
 </head>
+
 <body>
-  
   <div class="container flip-effect">
     <div class="timers">
       <section class="top-timer" data-desc="top">
-        <time id="time1">0:00</time>
+        <time id="time1"></time>
       </section>
-      
       <section class="bottom-timer black-bg" data-desc="bottom">
-        <time id="time2">0:00</time>
+        <time id="time2"></time>
       </section>
     </div>
     <div class="settings">
       <div class="settings-wrap">
-        <div class="top-panel">
-          <section class="top-panel-input" data-time="120"></section>
-          <section class="top-panel-input" data-time="300"></section>
-          <section class="top-panel-input" data-time="900"></section>
-        </div>
-        <div class="bottom-panel">
-          <section class="bottom-panel-input" id="custom">custom</section>
-          <section class="bottom-panel-input" id="start">start</section>
-        </div>
+        <section class="panel-wrap top-panel">
+          <div class="btn-wrap">
+            <button data-time="120"></button>
+          </div>
+          <div class="btn-wrap">
+            <button data-time="300"></button>
+          </div>
+          <div class="btn-wrap">
+            <button data-time="900"></button>
+          </div>
+        </section>
+        <section class="panel-wrap bottom-panel">
+          <form name="customForm" id="custom">
+            <input type="text" name="minutes" placeholder="enter minutes"
+              onfocus="this.placeholder = '' "
+              onblur="this.placeholder = 'enter minutes' "
+            />
+          </form>
+          <div class="btn-wrap" id="start">
+            <button>start</button>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -38,9 +52,10 @@
   <audio data-audio="buzzer" src="audio/buzzer.mp3"></audio>
 
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
-  <script type="text/javascript" src="js/flip-effect.js"></script>
+  <script type="text/javascript" src="js/settings.js"></script>
   
 </body>
 </html>

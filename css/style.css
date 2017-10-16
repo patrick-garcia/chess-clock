@@ -1,18 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:900,900i');
 
-html {box-sizing: border-box;} *, *:before, *:after {box-sizing: inherit;}
-
-body {
-  margin: 0; padding: 0;
-}
-
 .container {
   margin: 0 auto;
   height: 100vh;
   width: 100%;
-  max-width: 414px; /* iPhone 7plus width */
+  max-width: 414px;
   background-color: white;
-  position: relative; /* required for flip effect */
+  position: relative;
 }
 
 .timers {
@@ -22,7 +16,7 @@ body {
 
 .timers section {
   height: 50vh;
-  font-size: 80px;
+  font-size: 72px;
   font-family: 'Merriweather', serif;
   font-weight: 900;
   font-style: italic;
@@ -30,27 +24,40 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: #ffffff; /* Old Browsers */
-  background: -webkit-radial-gradient(top left,#ffffff,#e6e6e6); /*Safari 5.1-6*/
-  background: -o-radial-gradient(top left,#ffffff,#e6e6e6); /*Opera 11.1-12*/
-  background: -moz-radial-gradient(top left,#ffffff,#e6e6e6); /*Fx 3.6-15*/
-  background: radial-gradient(top left, #ffffff, #e6e6e6); /*Standard*/
   color: black;
+  cursor: pointer;
+  background: -webkit-radial-gradient(top left,#ffffff,#bebebe);
+  background: -o-radial-gradient(top left,#ffffff,#bebebe);
+  background: -moz-radial-gradient(top left,#ffffff,#bebebe);
+  background: radial-gradient(top left, #ffffff, #bebebe);
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  -ms-transition: all .3s linear;
   transition: all .3s linear;
 }
 
-time#time1 {
+.flipTime1{
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  -webkit-transition: transform .4s;
+  -moz-transition: transform .4s;
+  -ms-transition: transform .4s;
+  transition: transform .4s;
 }
 
 .timers section.black-bg {
-  background: #0c0b0b; /* Old Browsers */
-  background: -webkit-radial-gradient(top right,#0c0b0b,#515151); /*Safari 5.1-6*/
-  background: -o-radial-gradient(top right,#0c0b0b,#515151); /*Opera 11.1-12*/
-  background: -moz-radial-gradient(top right,#0c0b0b,#515151); /*Fx 3.6-15*/
-  background: radial-gradient(top right, #0c0b0b, #515151); /*Standard*/
+  background: -webkit-radial-gradient(top right,#0c0b0b,#515151);
+  background: -o-radial-gradient(top right,#0c0b0b,#515151);
+  background: -moz-radial-gradient(top right,#0c0b0b,#515151);
+  background: radial-gradient(top right, #0c0b0b, #515151);
   color: white;
 }
 
-
-
+/*media queries*/
+@media screen and (min-width: 321px) {
+  .timers section {
+    font-size: 80px;
+  }
+}
