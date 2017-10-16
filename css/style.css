@@ -10,7 +10,14 @@
 }
 
 .timers {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -20,12 +27,21 @@
   font-family: 'Merriweather', serif;
   font-weight: 900;
   font-style: italic;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   color: black;
   cursor: pointer;
+  display: -webkit-box;
+  display: -moz-flexbox;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-flex-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-flex-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background: -webkit-radial-gradient(top left,#ffffff,#bebebe);
   background: -o-radial-gradient(top left,#ffffff,#bebebe);
   background: -moz-radial-gradient(top left,#ffffff,#bebebe);

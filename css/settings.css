@@ -14,6 +14,9 @@
 
 .settings section.panel-wrap {
   width: 100%;
+  display: -webkit-box;
+  display: -moz-flexbox;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -25,9 +28,18 @@
 .settings div.btn-wrap {
   width: calc(100% / 3);
   font-family: sans-serif;
+  display: -webkit-box;
+  display: -moz-flexbox;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -moz-flex-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
-  align-items: center;
+  -webkit-box-align: center;
+  -moz-flex-align: center;
+  -ms-flex-align: center;
+  align-items: center
 }
 
 div.btn-wrap button {
@@ -98,8 +110,17 @@ div#start button.green-bg {
 
 .settings form[name="customForm"] {
   width: 50%;
+  display: -webkit-box;
+  display: -moz-flexbox;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -moz-flex-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -moz-flex-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
