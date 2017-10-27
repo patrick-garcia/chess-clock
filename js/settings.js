@@ -37,6 +37,7 @@ app.init = function() {
   });
 
   $('.container').on('touchstart click', function(e) {
+    e.preventDefault();
     if (!$(e.target).is('button')) {
       $('button figure').removeClass('blue-bg')
       $(app.$minuteBtn).css({'border':'1px solid white'})

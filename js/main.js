@@ -14,7 +14,6 @@ app.clickToggle = function() {
   if (app.runTimerOne) {
     $(app.$topTimer).on('touchstart click', app.timerCheck)
     $(app.$bottomTimer).off()
-
     app.blackBG();
   } else {
     $(app.$bottomTimer).on('touchstart click', app.timerCheck)
